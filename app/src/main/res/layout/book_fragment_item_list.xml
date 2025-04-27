@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@android:color/white">
+
+    <!-- 左侧分类栏 -->
+    <LinearLayout
+        android:id="@+id/linear_pager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:minWidth="60dp"
+        android:maxWidth="80dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="8dp"
+        android:background="@android:color/white" />
+
+    <!-- 中间分割线 -->
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="#DDDDDD" />
+
+    <!-- 右侧图书列表 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/book_list"
+        android:name="com.aaa.market.BookFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:layoutManager="LinearLayoutManager"
+        tools:context=".controllers.BookFragment"
+        tools:listitem="@layout/book_fragment_item" />
+</LinearLayout>

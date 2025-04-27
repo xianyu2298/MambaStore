@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#F5F5F5"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 顶部操作按钮区 -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="16dp">
+
+        <Button
+            android:id="@+id/btnAddBook"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:backgroundTint="#4CAF50"
+            android:drawableLeft="@android:drawable/ic_input_add"
+            android:padding="10dp"
+            android:text="添加书籍"
+            android:textColor="#000000" />
+
+        <Button
+            android:id="@+id/btnEditBook"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:backgroundTint="#FFC107"
+            android:drawableLeft="@android:drawable/ic_menu_edit"
+            android:padding="10dp"
+            android:text="修改书籍"
+            android:textColor="#000000" />
+
+        <Button
+            android:id="@+id/btnDeleteBook"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:backgroundTint="#F44336"
+            android:drawableLeft="@android:drawable/ic_menu_delete"
+            android:padding="10dp"
+            android:text="删除书籍"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+    <!-- 书本列表 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewBooks"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:clipToPadding="false"/>
+
+</LinearLayout>
