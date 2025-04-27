@@ -8,7 +8,7 @@
 
 ## 软件展示
 
-![](E:\market\app\screenshot\1.gif)
+![](app\screenshot\1.gif)
 
 ## 软件功能
 
