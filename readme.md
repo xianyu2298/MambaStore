@@ -1,6 +1,8 @@
 # MambaStore
 
 > 安卓大作业——书本商店
+>
+> 附带作业报告
 
 ## 项目简介
 
@@ -45,78 +47,93 @@
 ## 目录结构
 
 ```
-main/
-├── AndroidManifest.xml                           // 应用程序清单文件（声明Activity、权限、启动页等）
-├── ic_launcher-playstore.png                     // Play商店上传使用的应用图标（512x512）
-│
-├── java/
-│   └── com/
-│       └── mamba/
-│           ├── activity/
-│           │   ├── AdminActivity.java            // 管理员界面（添加/删除/修改书籍）
-│           │   ├── CartActivity.java             // 购物车页面
-│           │   ├── DetailActivity.java           // 商品（书本）详情页
-│           │   ├── LoginActivity.java            // 登录界面
-│           │   ├── MainActivity.java             // 应用主界面（首页，展示所有图书）
-│           │   ├── OrderActivity.java            // 订单列表页面
-│           │   ├── RegisterActivity.java         // 注册新用户界面
-│           │   └── SplashActivity.java           // 启动页界面（LOGO展示页）
-│           │
-│           ├── adapter/
-│           │   ├── BookAdapter.java               // 图书列表RecyclerView适配器
-│           │   ├── CartAdapter.java               // 购物车列表RecyclerView适配器
-│           │   └── OrderAdapter.java              // 订单列表RecyclerView适配器
-│           │
-│           ├── database/
-│           │   ├── DatabaseHelper.java            // SQLite数据库帮助类（创建表、升级等）
-│           │   └── DatabaseManager.java           // 封装数据库增删改查操作
-│           │
-│           ├── model/
-│           │   ├── Book.java                      // 图书实体类（title, author, price等）
-│           │   ├── CartItem.java                  // 购物车条目实体类
-│           │   └── Order.java                     // 订单实体类
-│           │
-│           └── utils/
-│               ├── Constants.java                 // 全局常量类（比如表名、字段名）
-│               └── PreferenceManager.java         // SharedPreferences封装（保存用户信息等）
-│
-├── res/
-│   ├── drawable/                                  // 图片资源文件夹（图标、背景）
-│   ├── layout/
-│   │   ├── activity_admin.xml                     // 管理员界面布局
-│   │   ├── activity_cart.xml                      // 购物车界面布局
-│   │   ├── activity_detail.xml                    // 商品详情界面布局
-│   │   ├── activity_login.xml                     // 登录界面布局
-│   │   ├── activity_main.xml                      // 主页面布局（图书列表）
-│   │   ├── activity_order.xml                     // 订单界面布局
-│   │   ├── activity_register.xml                  // 注册界面布局
-│   │   ├── activity_splash.xml                    // 启动页布局
-│   │   ├── item_book.xml                          // 单本图书列表项布局
-│   │   ├── item_cart.xml                          // 单条购物车商品项布局
-│   │   └── item_order.xml                         // 单条订单项布局
-│   │
-│   ├── mipmap-hdpi/                               // 应用图标（不同分辨率）
-│   ├── mipmap-mdpi/
-│   ├── mipmap-xhdpi/
-│   ├── mipmap-xxhdpi/
-│   ├── mipmap-xxxhdpi/
-│   │
-│   ├── values/
-│   │   ├── colors.xml                             // 颜色资源
-│   │   ├── strings.xml                            // 字符串资源（比如APP名字、按钮文字）
-│   │   ├── styles.xml                             // 应用样式（比如主题Theme）
-│   │
-│   └── values-night/
-│       ├── colors.xml                             // 夜间模式颜色配置
-│
+├── app
+│   ├── build.gradle
+│   ├── libs
+│   ├── proguard-rules.pro
+│   └── src
+│       ├── main
+│       │   ├── AndroidManifest.xml
+│       │   ├── java
+│       │   │   └── com
+│       │   │       └── lsx
+│       │   │           └── finalhomework
+│       │   │               ├── MyAuth.java                         // 用户管理类
+│       │   │               ├── MyDBHelper.java                     // 数据库访问类
+│       │   │               ├── NWImageView.java                    // 支持网络图片的ImageView
+│       │   │               ├── adapters
+│       │   │               │   ├── MyBookRecyclerViewAdapter.java  // 图书列表Adapter
+│       │   │               │   ├── MyCartRecyclerViewAdapter.java  // 购物车Adapter
+│       │   │               │   └── MyOrderRecyclerViewAdapter.java // 订单列表Adapter
+│       │   │               ├── controllers
+|		|	|				|	├── AddBookActivity.java            // 添加图书
+|		|	|				|	├── AdminActivity.java              // 管理员界面
+│       │   │               │   ├── BookDetailFragment.java         // 图书详情
+│       │   │               │   ├── BookFragment.java               // 图书列表
+│       │   │               │   ├── CartFragment.java               // 购物车
+|		|	|				|	├── DeleteBookActivity.java         // 删除图书
+│       │   │               │   ├── EditBookActivity.java           // 编辑图书信息
+│       │   │               │   ├── LoginActivity.java              // 注册登录页面
+│       │   │               │   ├── MainActivity.java               // 主页
+│       │   │               │   ├── OrderDetailFragment.java        // 订单详情
+│       │   │               │   └── OrderFragment.java              // 订单列表
+│       │   │               └── entities                            // 实体类
+│       │   │                   ├── Book.java                       // 图书
+│       │   │                   ├── BookService.java                // 图书操作
+│       │   │                   ├── Cart.java                       // 购物车
+│       │   │                   ├── CartItem.java                   // 购物车项
+│       │   │                   ├── Order.java                      // 订单
+│       │   │                   ├── OrderDetail.java                // 订单详情
+│       │   │                   └── OrderService.java               // 订单操作
+│       │   └── res                                                 // 资源文件
+│       │       ├── color
+│       │       ├── drawable
+│       │       ├── drawable-v24
+│       │       ├── entity
+│       │       ├── layout                                          // 布局文件
+│       │       │   ├── activity_add_book.xml                       // 管理员添加图书页面
+│       │       │   ├── activity_admin.xml                          // 管理员页面
+│       │       │   ├── activity_delete_book.xml                    // 管理员删除图书页面
+│       │       │   ├── activity_edit_book.xml                      // 管理员编辑图书页面
+│       │       │   ├── activity_login.xml                          // 注册登录页面
+│       │       │   ├── activity_main.xml                           // 主页面
+│       │       │   ├── book_fragment_item.xml                      // 图书列表项
+│       │       │   ├── book_fragment_item_list.xml                 // 图书列表页面
+│       │       │   ├── book_fragment_item_wide.xml                 // 图书列表项（宽）
+│       │       │   ├── cart_fragment_item.xml                      // 购物车列表项
+│       │       │   ├── cart_fragment_item_list.xml                 // 购物车列表页面
+│       │       │   ├── fragment_book_detail.xml                    // 图书详情页面
+│       │       │   ├── fragment_order_detail.xml                   // 订单详情页面
+│       │       │   ├── list_header.xml                             // 分组标题
+│       │       │   ├── order_fragment_item.xml                     // 订单列表项
+│       │       │   ├── order_fragment_item_list.xml                // 订单列表页面
+│       │       │   └── pager_item.xml                              // 分组标签
+│       │       ├── menu
+│       │           └── bottom_nav_menu.xml                         // 底部导航菜单项
+│       │       ├── mipmap-anydpi-v26
+│       │       ├── mipmap-hdpi
+│       │       ├── mipmap-mdpi
+│       │       ├── mipmap-xhdpi
+│       │       ├── mipmap-xxhdpi
+│       │       ├── mipmap-xxxhdpi
+│       │       ├── navigation
+│       │       │   └── mobile_navigation.xml                       // 导航关系
+│       │       ├── values
+│       │       └── values-night
+├── build.gradle
+├── gradle
+├── gradle.properties
+├── gradlew
+├── gradlew.bat
+├── local.properties
+├── LICENSE
+└── settings.gradle
 
 ```
 
 ## 数据库结构表
 
 ### 1. `account` 表 —— 用户账号表
-
-
 
 | 字段名     | 类型                              | 说明                       |
 | ---------- | --------------------------------- | -------------------------- |
@@ -129,8 +146,6 @@ main/
 ------
 
 ### 2. `book` 表 —— 书本信息表
-
-
 
 | 字段名        | 类型                              | 说明                           |
 | ------------- | --------------------------------- | ------------------------------ |
@@ -148,8 +163,6 @@ main/
 ------
 
 ### 3. `cart` 表 —— 购物车表
-
-
 
 | 字段名       | 类型                              | 说明                      |
 | ------------ | --------------------------------- | ------------------------- |
@@ -170,8 +183,6 @@ main/
 
 ### 4. `book_order` 表 —— 订单表（订单主表）
 
-
-
 | 字段名       | 类型                              | 说明                                   |
 | ------------ | --------------------------------- | -------------------------------------- |
 | `id`         | INTEGER PRIMARY KEY AUTOINCREMENT | 订单ID                                 |
@@ -188,8 +199,6 @@ main/
 ------
 
 ### 5. `order_detail` 表 —— 订单详情表
-
-
 
 | 字段名        | 类型                              | 说明                                         |
 | ------------- | --------------------------------- | -------------------------------------------- |
