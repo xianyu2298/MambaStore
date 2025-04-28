@@ -66,7 +66,7 @@
 │       │   │               │   ├── MyCartRecyclerViewAdapter.java  // 购物车Adapter
 │       │   │               │   └── MyOrderRecyclerViewAdapter.java // 订单列表Adapter
 │       │   │               ├── controllers
-|		    |	  |				        | 	├── AddBookActivity.java            // 添加图书
+|		    |  	|				        |	  ├── AddBookActivity.java            // 添加图书
 |		    |	  |				        |	  ├── AdminActivity.java              // 管理员界面
 │       │   │               │   ├── BookDetailFragment.java         // 图书详情
 │       │   │               │   ├── BookFragment.java               // 图书列表
@@ -128,6 +128,7 @@
 ├── local.properties
 ├── LICENSE
 └── settings.gradle
+
 
 ```
 
